@@ -5,8 +5,20 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?logo=javascript)](https://developer.mozilla.org/)
 [![HTML5](https://img.shields.io/badge/HTML5-Semântico-orange?logo=html5)](https://developer.mozilla.org/)
 [![CSS3](https://img.shields.io/badge/CSS3-Moderno-blue?logo=css3)](https://developer.mozilla.org/)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://apiprojeto-git-main-leticiavieiratchs-projects.vercel.app/)
+[![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render)](https://api-back4.onrender.com)
 
 Aplicação **Full Stack** completa que integra um **Frontend Web moderno e responsivo** a uma **API Backend em Node.js/Express** para consulta e exibição da data e hora do servidor em tempo real.
+
+---
+
+## 🔗 Aplicação no Ar (Produção)
+
+| Componente | Plataforma | Link de Acesso |
+|---|---|---|
+| 🖥️ **Frontend Web** | Vercel | [https://apiprojeto-git-main-leticiavieiratchs-projects.vercel.app/](https://apiprojeto-git-main-leticiavieiratchs-projects.vercel.app/) |
+| ⚙️ **Backend API (Status)** | Render | [https://api-back4.onrender.com](https://api-back4.onrender.com) |
+| 🕒 **Endpoint Data e Hora** | Render | [https://api-back4.onrender.com/data-hora](https://api-back4.onrender.com/data-hora) |
 
 ---
 
@@ -16,7 +28,7 @@ O repositório é organizado de forma modular, separando a camada de interface (
 
 ```text
 Front-end-Web/
-├── api-back/             # Camada de Backend (API REST)
+├── api-back/             # Camada de Backend (API REST Node.js/Express)
 │   ├── .gitignore        # Arquivos ignorados pelo Git (node_modules, etc.)
 │   ├── api.js            # Código principal do servidor Express
 │   ├── package.json      # Metadados e dependências do Node.js
@@ -39,11 +51,13 @@ Front-end-Web/
 - **Node.js**: Ambiente de execução JavaScript no servidor.
 - **Express**: Framework web minimalista para criação de rotas REST.
 - **CORS**: Middleware para permitir requisições de origens cruzadas pelo navegador.
+- **Hospedagem**: [Render](https://render.com).
 
 ### **Frontend (`api-front`)**
 - **HTML5**: Estrutura semântica e acessível.
 - **CSS3**: Layout moderno centralizado com gradientes, sombras e responsividade.
 - **JavaScript Vanilla (ES6+)**: Consumo assíncrono de API via `fetch` e manipulação dinâmica do DOM.
+- **Hospedagem**: [Vercel](https://vercel.com).
 
 ---
 
@@ -93,46 +107,33 @@ cd Front-end-Web
    cd api-front
    ```
 3. Abra o arquivo `index.html` em qualquer navegador (dê um duplo clique ou use a extensão **Live Server** do VS Code).
-4. O frontend irá carregar automaticamente a data e hora do servidor local e disponibilizar o botão **Atualizar** para novas consultas.
+4. O frontend irá carregar automaticamente a data e hora do servidor e disponibilizar o botão **Atualizar** para novas consultas.
 
 ---
 
 ## 🔌 Documentação da API
 
-| Método | Rota | Descrição |
-|---|---|---|
-| `GET` | `/` | Rota raiz de teste de funcionamento da API |
-| `GET` | `/data-hora` | Retorna a data e hora atual do servidor |
+| Método | Rota | Descrição | URL de Produção |
+|---|---|---|---|
+| `GET` | `/` | Status da API | [https://api-back4.onrender.com](https://api-back4.onrender.com) |
+| `GET` | `/data-hora` | Retorna data e hora atual | [https://api-back4.onrender.com/data-hora](https://api-back4.onrender.com/data-hora) |
 
 ### Exemplo de Resposta (`GET /data-hora`):
 ```json
 {
-  "dataHoraCompleta": "2026-10-29T01:30:57.874Z",
-  "data": "28/10/2026",
-  "hora": "22:30:57",
-  "timestamp": 1793237457874
+  "dataHoraCompleta": "2026-10-30T01:01:17.455Z",
+  "data": "29/10/2026",
+  "hora": "22:01:17",
+  "timestamp": 1793322077455
 }
 ```
 
 ---
 
-## 🌐 Guia de Deploy
+## 🌐 Deploy em Produção
 
-### **Deploy do Backend (ex: Render)**
-1. Acesse [render.com](https://render.com) e crie um **Web Service**.
-2. Aponte para este repositório no GitHub.
-3. Defina:
-   - **Root Directory**: `api-back`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-4. Copie a URL pública gerada (ex: `https://seu-backend.onrender.com`).
-
-### **Deploy do Frontend (ex: Vercel / Netlify / GitHub Pages)**
-1. No arquivo `api-front/index.html`, atualize a constante `API_URL` com a URL pública do seu backend:
-   ```javascript
-   const API_URL = 'https://seu-backend.onrender.com/data-hora';
-   ```
-2. Faça o deploy da pasta `api-front` na plataforma escolhida.
+- **Frontend**: Hospedado na [Vercel](https://apiprojeto-git-main-leticiavieiratchs-projects.vercel.app/) com deploy contínuo integrado ao GitHub.
+- **Backend**: Hospedado no [Render](https://api-back4.onrender.com) como Web Service Node.js.
 
 ---
 

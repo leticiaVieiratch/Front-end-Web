@@ -4,6 +4,14 @@ Backend desenvolvido em **Node.js** com **Express** que fornece a data e a hora 
 
 ---
 
+## 🔗 API no Ar (Produção)
+
+- **URL Base (Render)**: [https://api-back4.onrender.com](https://api-back4.onrender.com)
+- **Endpoint Data/Hora**: [https://api-back4.onrender.com/data-hora](https://api-back4.onrender.com/data-hora)
+- **Frontend em Produção (Vercel)**: [https://apiprojeto-git-main-leticiavieiratchs-projects.vercel.app/](https://apiprojeto-git-main-leticiavieiratchs-projects.vercel.app/)
+
+---
+
 ## 🛠️ Tecnologias
 
 - [Node.js](https://nodejs.org/) (v18+)
@@ -41,6 +49,8 @@ Backend desenvolvido em **Node.js** com **Express** que fornece a data e a hora 
 ### `GET /`
 Verificação de status da API.
 
+- **URL de Produção**: `https://api-back4.onrender.com/`
+
 **Resposta de Exemplo:**
 ```json
 {
@@ -52,13 +62,15 @@ Verificação de status da API.
 ### `GET /data-hora`
 Retorna a data e o horário atual no fuso horário `America/Sao_Paulo`.
 
+- **URL de Produção**: `https://api-back4.onrender.com/data-hora`
+
 **Resposta de Exemplo:**
 ```json
 {
-  "dataHoraCompleta": "2026-10-29T01:30:57.874Z",
-  "data": "28/10/2026",
-  "hora": "22:30:57",
-  "timestamp": 1793237457874
+  "dataHoraCompleta": "2026-10-30T01:01:17.455Z",
+  "data": "29/10/2026",
+  "hora": "22:01:17",
+  "timestamp": 1793322077455
 }
 ```
 
@@ -72,4 +84,4 @@ Retorna a data e o horário atual no fuso horário `America/Sao_Paulo`.
    - **Root Directory**: `api-back`
    - **Build Command**: `npm install`
    - **Start Command**: `npm start`
-4. Copie a URL gerada e configure-a no arquivo do frontend (`index.html`).
+4. A API estará disponível publicamente na URL configurada.

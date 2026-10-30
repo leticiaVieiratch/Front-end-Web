@@ -19,9 +19,11 @@
   </main>
 
   <script>
-    // URL da API local durante desenvolvimento.
-    // Para produção, substitua pela URL do backend hospedado (ex: Render).
-    const API_URL = 'http://localhost:3000/data-hora';
+    // Detecta automaticamente se o frontend está rodando localmente ou em produção (Vercel)
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const API_URL = isLocal
+      ? 'http://localhost:3000/data-hora'
+      : 'https://api-back4.onrender.com/data-hora';
 
     const conteudo = document.getElementById('conteudo');
     const btnAtualizar = document.getElementById('btnAtualizar');
