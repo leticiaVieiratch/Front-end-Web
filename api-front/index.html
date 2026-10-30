@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Data e Hora</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="card">
+    <h1>Data e Hora Atual</h1>
+
+    <div id="conteudo">
+      <p class="carregando">Carregando...</p>
+    </div>
+
+    <button id="btnAtualizar" type="button">Atualizar</button>
+  </main>
+
+  <script>
+    // URL da API local durante desenvolvimento.
+    // Para produção, substitua pela URL do backend hospedado (ex: Render).
+    const API_URL = 'http://localhost:3000/data-hora';
+
+    const conteudo = document.getElementById('conteudo');
+    const btnAtualizar = document.getElementById('btnAtualizar');
+
+    async function buscarDataHora() {
+      conteudo.innerHTML = '<p class="carregando">Carregando...</p>';
+
+      try {
+        const resposta = await fetch(API_URL);
+
+        if (!resposta.ok) {
+          throw new Error(`Erro na resposta da API: status ${resposta.status}`);
+        }
+
+        const dados = await resposta.json();
+
+        conteudo.innerHTML = `
+          <p class="data">${dados.data}</p>
+          <p class="hora">${dados.hora}</p>
+        `;
+      } catch (erro) {
+        conteudo.innerHTML = '<p class="erro">Não foi possível carregar a data e hora.<br>Verifique se a API está rodando.</p>';
+        console.error('Erro ao consultar API:', erro);
+      }
+    }
+
+    btnAtualizar.addEventListener('click', buscarDataHora);
+
+    // Consulta automaticamente ao carregar a página
+    document.addEventListener('DOMContentLoaded', buscarDataHora);
+  </script>
+
+</body>
+</html>
