@@ -136,7 +136,3 @@ cd Front-end-Web
 - **Backend**: Hospedado no [Render](https://api-back4.onrender.com) como Web Service Node.js.
 
 ---
-
-## 👩‍💻 Autora
-
-Desenvolvido por **[Letícia Vieira](https://github.com/leticiaVieiratch)**.
